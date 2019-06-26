@@ -8,7 +8,6 @@ import dao.dao.UserDaoImpl;
 import dao.lib.Injector;
 
 public class Main {
-
     static {
         try {
             Injector.injectDependency();
@@ -31,12 +30,5 @@ public class Main {
 
         System.out.println(betDao.getAll());
         System.out.println(userDao.getAll());
-
     }
-
-
 }
-
-
-
-

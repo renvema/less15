@@ -11,11 +11,11 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void add(User user) {
-        Storage.user.add(user);
+        Storage.USERS.add(user);
     }
 
     @Override
     public List<User> getAll() {
-        return Storage.user;
+        return Storage.USERS;
     }
 }

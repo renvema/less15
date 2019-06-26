@@ -10,14 +10,16 @@ import java.util.Scanner;
 
 public class ConsoleHandler {
     private static Scanner scanner = new Scanner(System.in);
+
     @Inject
     private static BetDao betDao;
+
     @Inject
     private static UserDao userDao;
 
-    static public void handle() {
+    public static void handle() {
         try {
-            while (true) {
+            while (scanner.hasNext()) {
                 String command = scanner.nextLine();
                 if (command.equals("0")) {
                     return;
@@ -34,9 +36,9 @@ public class ConsoleHandler {
         }
     }
 
-    static public void handleUser() {
+    public static void handleUser() {
         try {
-            while (true) {
+            while (scanner.hasNext()) {
                 String command = scanner.nextLine();
                 if (command.equals("0")) {
                     return;
