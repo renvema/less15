@@ -1,6 +1,7 @@
 package dao;
 
 import dao.controller.ConsoleHandler;
+import dao.controller.UserHandler;
 import dao.dao.BetDao;
 import dao.dao.BetDaoImpl;
 import dao.dao.UserDao;
@@ -25,7 +26,7 @@ public class Main {
 
         System.out.println("Введите данные пользователя \n" +
                 "имя и возраст через пробел");
-        ConsoleHandler.handleUser();
+        UserHandler.handleUser();
         UserDao userDao = new UserDaoImpl() ;
 
         System.out.println(betDao.getAll());
