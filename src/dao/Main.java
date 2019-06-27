@@ -1,6 +1,7 @@
 package dao;
 
-import dao.controller.ConsoleHandler;
+import dao.controller.BetHandler;
+import dao.controller.Handler;
 import dao.controller.UserHandler;
 import dao.dao.BetDao;
 import dao.dao.BetDaoImpl;
@@ -21,13 +22,15 @@ public class Main {
 
         System.out.println("Если хотите сделать ставку, введите \n" +
                 "сумму и риск через пробел");
-        ConsoleHandler.handle();
+        Handler betHandler = new BetHandler();
+        betHandler.handle();
         BetDao betDao = new BetDaoImpl();
 
         System.out.println("Введите данные пользователя \n" +
                 "имя и возраст через пробел");
-        UserHandler.handleUser();
-        UserDao userDao = new UserDaoImpl() ;
+        Handler userHandler = new UserHandler();
+        userHandler.handle();
+        UserDao userDao = new UserDaoImpl();
 
         System.out.println(betDao.getAll());
         System.out.println(userDao.getAll());

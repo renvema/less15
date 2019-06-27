@@ -4,15 +4,14 @@ import dao.dao.BetDao;
 import dao.lib.Inject;
 import dao.model.Bet;
 
-import java.util.Scanner;
-
-public class ConsoleHandler {
+public class BetHandler implements Handler{
 
     @Inject
     private static BetDao betDao;
 
-    public static void handle() {
-        try (Scanner scanner = new Scanner(System.in)) {
+    @Override
+    public void handle() {
+        try  {
             while (scanner.hasNext()) {
                 String command = scanner.nextLine();
                 if (command.equals("0")) {

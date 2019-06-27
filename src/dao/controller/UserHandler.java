@@ -6,13 +6,14 @@ import dao.model.User;
 
 import java.util.Scanner;
 
-public class UserHandler {
+public class UserHandler implements Handler {
 
     @Inject
     private static UserDao userDao;
 
-    public static void handleUser() {
-        try (Scanner scanner = new Scanner(System.in)){
+    @Override
+    public void handle() {
+        try {
             while (scanner.hasNext()) {
                 String command = scanner.nextLine();
                 if (command.equals("0")) {

@@ -1,9 +1,11 @@
 package dao.lib;
 
-import dao.controller.ConsoleHandler;
+import dao.controller.BetHandler;
 import dao.controller.UserHandler;
 import dao.dao.BetDao;
+import dao.dao.BetDaoImpl;
 import dao.dao.UserDao;
+import dao.dao.UserDaoImpl;
 import dao.factory.BetDaoFactory;
 import dao.factory.UserDaoFactory;
 
@@ -12,24 +14,30 @@ import java.lang.reflect.Field;
 public class Injector {
 
     public static void injectDependency() throws IllegalAccessException {
-        Class<ConsoleHandler> consoleHandlerClass = ConsoleHandler.class;
+        Class<BetHandler> consoleHandlerClass = BetHandler.class;
         Class<UserHandler> userHandlerClass = UserHandler.class;
-        Class<BetDao> betDaoImplClass = BetDao.class;
-        Class<UserDao> userDaoImplClass = UserDao.class;
+        Class<BetDao> betDaoInterface = BetDao.class;
+        Class<UserDao> userDaoInterface = UserDao.class;
+        Class<BetDaoImpl> betDaoImplClass = BetDaoImpl.class;
+        Class<UserDaoImpl> userDaoImplClass = UserDaoImpl.class;
 
         Field[] consoleHandlerFields = consoleHandlerClass.getDeclaredFields();
         for (Field field : consoleHandlerFields) {
-            if (field.getDeclaredAnnotation(Inject.class) != null) {
-                field.setAccessible(true);
-                field.set(null, BetDaoFactory.getBetDao());
+            if (field.isAnnotationPresent(Inject.class)) {
+                if (field.getType().equals(betDaoInterface)
+                        && betDaoImplClass.isAnnotationPresent(Dao.class)) {
+                    field.setAccessible(true);
+                    field.set(null, BetDaoFactory.getBetDao());
+                }
             }
         }
 
         Field[] humanHandler = userHandlerClass.getDeclaredFields();
         for (Field field : humanHandler) {
-            if (field.getDeclaredAnnotation(Inject.class) != null) {
-                field.setAccessible(true);
-                if (field.getType().equals(userDaoImplClass) && userDaoImplClass.getAnnotation(Dao.class) != null) {
+            if (field.isAnnotationPresent(Inject.class)) {
+                if (field.getType().equals(userDaoInterface)
+                        && userDaoImplClass.isAnnotationPresent(Dao.class)) {
+                    field.setAccessible(true);
                     field.set(null, UserDaoFactory.getUserDao());
                 }
             }
