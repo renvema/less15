@@ -33,21 +33,6 @@ public class Injector {
                     field.set(null, UserDaoFactory.getUserDao());
                 }
             }
-
-//        Field[] consoleHandlerFields = consoleHandlerClass.getDeclaredFields();
-//        for (Field field : consoleHandlerFields) {
-//            if (field.getDeclaredAnnotation(Inject.class) != null) {
-//                field.setAccessible(true);
-//                if (field.getType().equals(betDaoImplClass) &&
-//                        betDaoImplClass.getDeclaredAnnotation(Dao.class) != null) {
-//                    field.set(null, BetDaoFactory.getBetDao());
-//                } else if ((field.getType().equals(userDaoImplClass))
-//                        ) {
-//                    field.set(null, UserDaoFactory.getUserDao());
-//                }
-//
-//            }
-//        }
         }
     }
 }
