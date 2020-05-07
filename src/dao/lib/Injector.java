@@ -2,7 +2,7 @@ package dao.lib;
 
 import dao.controller.BetHandler;
 import dao.controller.UserHandler;
-import dao.dao.BetDao;
+import dao.dao.BetDaoInterface;
 import dao.dao.BetDaoImpl;
 import dao.dao.UserDao;
 import dao.dao.UserDaoImpl;
@@ -16,7 +16,7 @@ public class Injector {
     public static void injectDependency() throws IllegalAccessException {
         Class<BetHandler> consoleHandlerClass = BetHandler.class;
         Class<UserHandler> userHandlerClass = UserHandler.class;
-        Class<BetDao> betDaoInterface = BetDao.class;
+        Class<BetDaoInterface> betDaoInterface = BetDaoInterface.class;
         Class<UserDao> userDaoInterface = UserDao.class;
         Class<BetDaoImpl> betDaoImplClass = BetDaoImpl.class;
         Class<UserDaoImpl> userDaoImplClass = UserDaoImpl.class;

@@ -8,7 +8,7 @@ import java.util.List;
 
 //НАШ КЛАСС ДЛЯ РАБОТЫ С БАЗОЙ ДАННЫХ И ТАБЛИЦОЙ СТАВОК
 @Dao
-public class BetDaoImpl implements BetDao {
+public class BetDaoImpl implements BetDaoInterface {
 
     @Override
     public void add(Bet bet) {

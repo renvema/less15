@@ -1,13 +1,13 @@
 package dao.controller;
 
-import dao.dao.BetDao;
+import dao.dao.BetDaoInterface;
 import dao.lib.Inject;
 import dao.model.Bet;
 
 public class BetHandler implements Handler{
 
     @Inject
-    private static BetDao betDao;
+    private static BetDaoInterface betDao;
 
     @Override
     public void handle() {

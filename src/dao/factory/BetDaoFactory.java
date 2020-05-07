@@ -1,13 +1,13 @@
 package dao.factory;
 
-import dao.dao.BetDao;
+import dao.dao.BetDaoInterface;
 import dao.dao.BetDaoImpl;
 
 public class BetDaoFactory {
 
-    private static BetDao instance;
+    private static BetDaoInterface instance;
 
-    public static BetDao getBetDao() {
+    public static BetDaoInterface getBetDao() {
         if (instance == null) {
             instance = new BetDaoImpl();
         }

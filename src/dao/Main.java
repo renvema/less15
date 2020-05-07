@@ -3,7 +3,7 @@ package dao;
 import dao.controller.BetHandler;
 import dao.controller.Handler;
 import dao.controller.UserHandler;
-import dao.dao.BetDao;
+import dao.dao.BetDaoInterface;
 import dao.dao.BetDaoImpl;
 import dao.dao.UserDao;
 import dao.dao.UserDaoImpl;
@@ -24,7 +24,7 @@ public class Main {
                 "сумму и риск через пробел");
         Handler betHandler = new BetHandler();
         betHandler.handle();
-        BetDao betDao = new BetDaoImpl();
+        BetDaoInterface betDao = new BetDaoImpl();
 
         System.out.println("Введите данные пользователя \n" +
                 "имя и возраст через пробел");

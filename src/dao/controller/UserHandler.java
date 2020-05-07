@@ -4,8 +4,6 @@ import dao.dao.UserDao;
 import dao.lib.Inject;
 import dao.model.User;
 
-import java.util.Scanner;
-
 public class UserHandler implements Handler {
 
     @Inject
